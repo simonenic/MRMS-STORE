@@ -10,6 +10,8 @@ var Q           = require('q');          // Q promise
 var mongoose    = require('mongoose');   // models for Mongo
 // Use q. Note that you **must** use `require('q').Promise`.
 mongoose.Promise = require('q').Promise;
+mongoose.connect('localhost:27017/mrmsdb');
+
 
 var config = require('./config');        // get our config file
 

@@ -1,190 +1,26 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <link rel="stylesheet" href="../css/login.css">
-    <link rel="stylesheet" href="../css/index.css" >
-    <link rel="stylesheet" href="../css/bootstrap-theme.css" >
-    <link rel="stylesheet" href="../css/bootstrap-theme.min.css" >
-    <link rel="stylesheet" href="../css/bootstrap.min.css" >
-    <link rel="stylesheet" href="../css/bootstrap.css" >
-    <link rel="stylesheet" href="../css/stile.css" >
-    <link  href="../css/font-awesome.min.css" rel="stylesheet">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    
-    
-    <script type="text/javascript"	src="../js/jquery-3.2.1.js"></script>
-    <script src="../js/bootstrap.min.js" ></script>
-    <script	type "text/javascript" src= "assets/js/angular.min.js"></script>
-    <script	type "text/javascript" src= "assets/js/angular.js"></script>
-
-
-
-
-
-
-
-    <script type="text/javascript" src="../js/login.js"></script>
-
-
-</head>
-<body>
-
-<h2>CIAO! ACCEDI A MRMS STORE</h2>
-
-<button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
-
-<div id="id01" class="modal">
-
-  <form class="modal-content animate" action="/action_page.php">
-    <div class="imgcontainer">
-    
-      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
-      <img src="../img/logo.jpg">
-    </div>
-
-
-        <div class="container">
-
-          <div class="input-group margin-bottom-sm">  <span class="input-group-addon"><i class="fa fa-envelope-o fa-fw"  ></i></span>
-  <input  type="text" placeholder="Email address">
-</div>   
- <br>
-<div class="input-group">
-  <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
-  <input  type="password" placeholder="Password" requred>
+<div class="page-header">
+    <h1>Login utente</h1></div>
+<form ng-submit="login.Login(loginData);">
+    <label>Username:</label>
+    <input class="form-control" type="text" name ="username" placeholder="inserisci l'username" ng-model="login.loginData.username" >
+    <br>
+    <label>Password:</label>
+    <input class="form-control" type="password" name="password" placeholder="inserisci la password"  ng-model="login.loginData.password">
+    <br>
+    <button class="btn btn-primary" type="submit">Accedi</button>
+</form>
+<br>
+<div class="jumbotron text-center" ng-show="login.caricamento">
+    <i class="fa fa-spinner" aria-hidden="true"></i>
+    <p>Caricamento....</p>
 </div>
 <br>
-<button type="submit">Accedi</button>
-         
-          <input type="checkbox" checked="checked"> Resta Collegato
-        </div> 
-  
-        <div class="container" style="background-color:#f1f1f1">
-          <br>
-            <label><b>Sei Nuovo su MRMS Store?</b></label>
-            <button type="button" class="cancelbtn">Crea il tuo Account MRMS Store</button>
+<div class="row show-hide-message" ng-show="login.successMsg">
+    <div class="alert alert-success">{{login.successMsg}}</div>
+</div>
 
-        </div>
-      </form>
-    </div>
-   <style>
-   /* Full-width input fields */
-input[type=text], input[type=password] {
-    width: 70%;
-    padding: 12px 20px;
-    line-height: 15px; /* Altezza di riga */
-    display: inline-block;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-}
+<br>
 
-/* Set a style for all buttons */
-button {
-    background-color: #4CAF50;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    cursor: pointer;
-    width: 27%;
-    float:right;
-}
-
-button:hover {
-    opacity: 0.8;
-}
-
-/* Extra styles for the cancel button */
-.cancelbtn {
-    width: auto;
-    padding: 10px 18px;
-    background-color:#ffa500 ;
-}
-
-/* Center the image and position the close button */
-.imgcontainer {
-    text-align: center;
-    margin: 12px 0 12px 0;
-    position: relative;
-}
-
-img.logo {
-    width: 20%;
-    border-radius: 20%;
-}
-
-.container {
-    padding: 12px;
-    width: 100%;
-}
-
-span.psw {
-    float: right;
-    padding-top: 16px;
-}
-
-/* The Modal (background) */
-.modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-    padding-top: 60px;
-}
-
-/* Modal Content/Box */
-.modal-content {
-    background-color: #fefefe;
-    margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
-    border: 1px solid #888;
-    width: 40%; /* Could be more or less, depending on screen size */
-}
-
-/* The Close Button (x) */
-.close {
-    position: absolute;
-    right: 25px;
-    top: 0;
-    color: #000;
-    font-size: 35px;
-    font-weight: bold;
-}
-
-
-/* Add Zoom Animation */
-.animate {
-    -webkit-animation: animatezoom 0.6s;
-    animation: animatezoom 0.6s
-}
-
-@-webkit-keyframes animatezoom {
-    from {-webkit-transform: scale(0)}
-    to {-webkit-transform: scale(1)}
-}
-
-@keyframes animatezoom {
-    from {transform: scale(0)}
-    to {transform: scale(1)}
-}
-
-/* Change styles for span and cancel button on extra small screens */
-@media screen and (max-width: 300px) {
-    span.psw {
-       display: block;
-       float: none;
-    }
-    .cancelbtn {
-       width: 100%;
-    }
-}
-   </style>
-
-
-</body>
-</html>
+<div class="row show-hide-message" ng-show="login.errorMsg">
+    <div class="alert alert-danger">{{login.errorMsg}}</div>
+</div>

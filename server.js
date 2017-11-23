@@ -3,13 +3,16 @@
 // =======================
 var express     = require('express');
 var app         = express();
-
 var bodyParser  = require('body-parser');// get POST parameteres
 var morgan      = require('morgan');     // automatic log of HTTP requests
 var Q           = require('q');          // Q promise
 var mongoose    = require('mongoose');   // models for Mongo
+var router      = express.Router();
+var appRoutes  = require('./routes/api.js')(router);
+var path=      require('path');
 // Use q. Note that you **must** use `require('q').Promise`.
 mongoose.Promise = require('q').Promise;
+mongoose.connect('localhost:27017/mrmsdb');
 
 var config = require('./config');        // get our config file
 
@@ -79,12 +82,19 @@ var port = process.env.PORT || 8080; // used to create, sign, and verify tokens
 
 
 
+
 // use body parser so we can get info from POST and/or URL parameters
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(express.static(__dirname + '/Client/www'));
+app.use('/api',appRoutes);
+
 
 // use morgan to log requests to the console
 app.use(morgan('dev'));  // dev = development
+
+
+
 
 
 
@@ -100,21 +110,24 @@ app.use(morgan('dev'));  // dev = development
 //    res.send('Ciao! benvenuto nelle API POST del tutorial JWT su http://localhost:' + port);
 //});
 
-app.use(express.static(__dirname + '/Client/www'));
+
 
 // =======================
 // ADMIN ROUTES 
 // =======================
-var adminRoutes = require('./routes/admin/admin-index');
-app.use('/admin', adminRoutes);   // put /admin as prefix
+//var adminRoutes = require('./routes/admin/admin-index');
+//app.use('/admin', adminRoutes);   // put /admin as prefix
 
  
 
 // =======================
 // API ROUTES 
 // =======================
-var apiRoutes = require('./routes/api/api-index');
-app.use('/api', apiRoutes);   // put /admin as prefix
+//var apiRoutes = require('./routes/api/api-index');
+//app.use('/api', apiRoutes);   // put /admin as prefix
+app.get('*', function (req, res){
+res.sendFile(path.join(__dirname+'/Client/www/index.html'));
+});
 
 
 
@@ -124,5 +137,4 @@ app.use('/api', apiRoutes);   // put /admin as prefix
 // =======================
 app.listen(port);
 logger.info('server avviato su localhost:' + port);
-logger.info('#### trovi un client Angular di prova su https://github.com/De-Lac/AngularJs_client_example ####');
 logger.debug('ambiente di log settato a debug');

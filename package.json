@@ -1,24 +1,23 @@
 {
-  "name": "tutorial_jwt",
+  "name": "mrms-store",
   "version": "1.0.0",
-  "description": "tutorial jwt",
-  "main": "index.js",
+  "description": "mrmsdb",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
-  "author": "",
+  "keywords": [
+    "mrms"
+  ],
+  "author": "mrms",
   "license": "ISC",
   "dependencies": {
-    "angular": "^1.6.6",
     "bcrypt-nodejs": "0.0.3",
-    "body-parser": "^1.17.2",
-    "express": "^4.15.3",
-    "fs": "0.0.1-security",
-    "jsonwebtoken": "^7.4.1",
-    "mongo": "^0.1.0",
-    "mongoose": "^4.10.5",
-    "morgan": "^1.8.2",
-    "q": "^1.5.1",
-    "winston": "^2.3.1"
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "jsonwebtoken": "^8.1.0",
+    "mongoose": "^4.13.4",
+    "morgan": "^1.9.0"
   }
 }

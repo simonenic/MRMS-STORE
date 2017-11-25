@@ -1,5 +1,5 @@
 <!DOCTYPE>
-<html >
+<html  >
 <head>
    
     <meta charset="utf-8">
@@ -10,31 +10,33 @@
 <link rel="stylesheet" href="css/bootstrap-theme.min.css" >
 <link rel="stylesheet" href="css/bootstrap.min.css" >
 <link rel="stylesheet" href="css/bootstrap.css" >
-<link rel="stylesheet" href="css/stile.css" >
+<link rel="stylesheet" href="css/animate.css" >
 <link  href="css/font-awesome.min.css" rel="stylesheet">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
 <script type="text/javascript"	src="js/jquery-3.2.1.js"></script>
 <script src="js/bootstrap.min.js" ></script>
-<!--Angular Main-->
+<!--Main angular-->
 <script src="js/angular.js" ></script>
-<script src="js/angular-route.min.js" type="text/javascript"></script>
-<!--Angular config/ routes-->
-<script type="text/javascript" src="app.js"></script>
-<script type="text/javascript" src="routes.js"></script>
-<!--Angular controlli-->
-<script type="text/javascript" src="controller/userCtrl.js"></script>
-<script type="text/javascript" src="controller/loginCtrl.js"></script>
-<!--Servizi Angular-->
-<script type="text/javascript" src="services/userServices.js"></script>
-<script type="text/javascript" src="services/authServices.js"></script>
+<script src="js/angular-route.js" type="text/javascript"></script>
+<script src="js/angular-animate.js"></script>
+<!--Angular config route-->
+<script src="app.js"></script>
+<script src="routes.js"></script>
+<!--Controller-->
+<script src="controllers/userCtrl.js"></script>
+<script src="controllers/loginCtrl.js"></script>
+<!--Services-->
+<script src="services/userServices.js"></script>
+<script src="services/authServices.js"></script>
+
 
 </head>
 
-<body ng-app="myApp">
+<body ng-app="mrmsApp" ng-controller="loginCtrl as login">
    
-    <div class="container-2">
+    <div class="container">
   <!--navbar-->
   <nav class="navbar navbar-inverse">
     <div class="container-fluid">
@@ -55,13 +57,13 @@
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categorie <span class="caret"></span></a>
             <ul class="dropdown-menu">
-              <li><a href="#"> <i class="fa fa-book fa-fw" aria-hidden="true"></i>&nbsp;   Libri</a></li>
+              <li><a href="#!/about"> <i class="fa fa-book fa-fw" aria-hidden="true"></i>&nbsp;   Libri</a></li>
               <li role="separator" class="divider"></li>
-              <li><a href="#!/about"> <i class="fa fa-music" aria-hidden="true"></i>&nbsp;   Musica</a></li>
+              <li><a href="#"> <i class="fa fa-music" aria-hidden="true"></i>&nbsp;   Musica</a></li>
               <li role="separator" class="divider"></li>
               <li><a href="#"> <i class="fa fa-film" aria-hidden="true"></i>&nbsp;    Film</a></li>
               <li role="separator" class="divider"></li>
-              <li><a href="/templates/paginaprodotti.html"><i class="fa fa-gamepad" aria-hidden="true"></i>&nbsp;    Videogiochi e console</a></li>
+              <li><a href="#"><i class="fa fa-gamepad" aria-hidden="true"></i>&nbsp;    Videogiochi e console</a></li>
               <li role="separator" class="divider"></li>
               <li><a href="#"><i class="fa fa-laptop" aria-hidden="true"></i>&nbsp;    Elettronica e informatica</a></li>
             </ul>
@@ -78,6 +80,8 @@
         <ul class="nav navbar-nav navbar-right">
             <li><a href="#"><i class="fa fa-shopping-cart fa-lg" aria-hidden="true"></i> </a></li>
           <li><a href="#!/registrazione">Registrazione</a></li>
+          <li><a href="#" ng-click="login.logout();">Logout</a></li>
+          <li><a href="#">ciao {{ login.username }}</a></li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-sign-in" aria-hidden="true"></i>Login<span class="caret"></span></a>
             <ul class="dropdown-menu">
@@ -92,9 +96,11 @@
   </div>
   </nav>
   <!--fine navbar-->
+
  
  <div ng-view></div>
-    </br>
+ 
+    
 <!--footer-->
 <footer>
     <div class="footer" id="footer">
@@ -164,9 +170,5 @@
     </div>
     <!--/.footer-bottom--> 
 </footer>
-
-
-
-
 </body>
 </html>

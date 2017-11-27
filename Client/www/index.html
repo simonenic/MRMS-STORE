@@ -33,10 +33,7 @@
 
 
 </head>
-
-<body ng-app="mrmsApp" ng-controller="loginCtrl as login">
-   
-    <div class="container">
+<body ng-app="mrmsApp" ng-controller="loginCtrl as login" ng-show="login.loadme" ng-clook></body>
   <!--navbar-->
   <nav class="navbar navbar-inverse">
     <div class="container-fluid">
@@ -79,13 +76,13 @@
         </form>
         <ul class="nav navbar-nav navbar-right">
             <li><a href="#"><i class="fa fa-shopping-cart fa-lg" aria-hidden="true"></i> </a></li>
-          <li><a href="#!/registrazione">Registrazione</a></li>
-          <li><a href="#" ng-click="login.logout();">Logout</a></li>
-          <li><a href="#">ciao {{ login.username }}</a></li>
+          <li><a ng-show="!login.isLoggedIn" href="#!/registrazione">Registrazione</a></li>
+          <li><a ng-show="login.isLoggedIn" href="#" ng-click="login.logout();">Logout</a></li>
+          <li><a ng-show="login.isLoggedIn" href="#!/profilo">ciao {{ login.username }}</a></li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-sign-in" aria-hidden="true"></i>Login<span class="caret"></span></a>
             <ul class="dropdown-menu">
-              <li><a href="#!/login">Login cliente</a></li>
+              <li><a ng-show="!login.isLoggedIn" href="#!/login">Login cliente</a></li>
               <li role="separator" class="divider"></li>
               <li><a href="#">Login amministratore</a></li>
             </ul>
@@ -96,6 +93,10 @@
   </div>
   </nav>
   <!--fine navbar-->
+</div>
+
+      <br>
+      <br>
 
  
  <div ng-view></div>

@@ -1,5 +1,5 @@
 angular.module('appRoutes',['ngRoute'])
-.config(function($routeProvider){
+.config(function($routeProvider,$locationProvider){
     $routeProvider
     .when('/',{
         templateUrl: 'templates/home.html'
@@ -20,6 +20,10 @@ angular.module('appRoutes',['ngRoute'])
 
     .when('/logout',{
         templateUrl: 'templates/logout.html'
+    })
+
+    .when('/profilo',{
+        templateUrl: 'templates/profilo.html'
     })
 });
 

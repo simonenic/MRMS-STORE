@@ -16,13 +16,14 @@ app.use('/api',appRoutes);
 
 
 
-mongoose.connect('mongodb://localhost:27017/mrmsdb', function(err){
+mongoose.connect('mongodb://remocottilli:ciaociao93@ds113136.mlab.com:13136/mrmsdb', function(err){
     if (err){
         console.log('Non connesso al database: '+ err);
     }else{
         console.log('Connesso a MongoDB');
     }
 });
+
 
 app.get('*',function(req,res){
     res.sendFile(path.join(__dirname +'/Client/www/index.html'));

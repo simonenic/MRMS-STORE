@@ -11,6 +11,7 @@
 <link rel="stylesheet" href="css/bootstrap.min.css" >
 <link rel="stylesheet" href="css/bootstrap.css" >
 <link rel="stylesheet" href="css/animate.css" >
+<link rel="stylesheet" href="css/stile.css" >
 <link  href="css/font-awesome.min.css" rel="stylesheet">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -27,6 +28,7 @@
 <!--Controller-->
 <script src="controllers/userCtrl.js"></script>
 <script src="controllers/loginCtrl.js"></script>
+<script src="controllers/adminCtrl.js"></script>
 <!--Services-->
 <script src="services/userServices.js"></script>
 <script src="services/authServices.js"></script>
@@ -78,13 +80,9 @@
             <li><a href="#"><i class="fa fa-shopping-cart fa-lg" aria-hidden="true"></i> </a></li>
           <li><a ng-show="!login.isLoggedIn" href="#!/registrazione">Registrazione</a></li>
           <li><a ng-show="login.isLoggedIn" href="#" ng-click="login.logout();">Logout</a></li>
+          <li><a ng-show="login.isLoggedIn; login.autorizzazione;" href="#!/admin">Amministratore</a></li>
           <li><a ng-show="login.isLoggedIn" href="#!/profilo">ciao {{ login.username }}</a></li>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-sign-in" aria-hidden="true"></i>Login<span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <li><a ng-show="!login.isLoggedIn" href="#!/login">Login cliente</a></li>
-              <li role="separator" class="divider"></li>
-              <li><a href="#">Login amministratore</a></li>
+              <li><a ng-show="!login.isLoggedIn" href="#!/login">Login</a></li>
             </ul>
           </li>
         </ul>
@@ -96,12 +94,12 @@
 </div>
 
       <br>
-      <br>
+      
 
  
  <div ng-view></div>
  
-    
+    <br>
 <!--footer-->
 <footer>
     <div class="footer" id="footer">

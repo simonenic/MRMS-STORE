@@ -1,16 +1,28 @@
 angular.module('loginController',['authServices'])
-.controller('loginCtrl',function(Auth, $timeout, $location,$rootScope){
+.controller('loginCtrl',function(Auth, $timeout, $location,$rootScope,User){
     var app=this;
     app.loadme= false;
     $rootScope.$on('$routeChangeStart', function(){
        
         if(Auth.isLoggedIn()) {
-            console.log('Success: Utente loggato con successo');
             app.isLoggedIn=true;
             Auth.getUser().then(function(data){
                 app.username= data.data.username;
                 app.useremail= data.data.email;
-                app.loadme= true;
+               User.getPermission().then(function(data){
+                   if(data.data.permission==='admin' || data.data.permission==='moderator'){
+                       app.autorizzazione= true;
+                       app.loadme= true;
+                   }else{
+                    app.loadme= true;
+                   }
+               });
+
+
+
+
+
+               
             });
            
         } else {
@@ -34,7 +46,6 @@ angular.module('loginController',['authServices'])
                 $location.path('/about');
                 app.successMsg=false;
             },2000);
-            
            }else{
             app.loading= false,
             app.errorMsg= data.data.message;

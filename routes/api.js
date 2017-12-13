@@ -1,8 +1,10 @@
 var User    = require('../models/user.js');
+var Prodotto= require('../models/prodotto.js');
 var jwt     =require('jsonwebtoken');
 var secret  ='harrypotter';
 
 module.exports=function(router){
+
 
     //Registrazione utente route
     router.post('/users', function(req,res){
@@ -45,7 +47,25 @@ module.exports=function(router){
     }
   });
 
-
+   router.post('/prodottos', function(req,res){
+    var prodotto = new Prodotto();
+    prodotto.nome= req.body.nome;
+    prodotto.descrizione = req.body.descrizione;
+    prodotto.prezzo = req.body.prezzo;
+    prodotto.quantita= req.body.quantita;
+    prodotto.immagine= req.body.immagine;
+    if(req.body.nome== null || req.body.nome=='' ||req.body.descrizione==null|| req.body.descrizione==''|| req.body.prezzo== null|| req.body.prezzo==''|| req.body.quantita==null || req.body.quantita==''){
+        res.json({success: false, message:'Inserisci nome prodotto, descrizione,prezzo e quantità' });
+    }else{
+        prodotto.save(function(err){
+            if (err){
+                res.json({success:false, message: 'Oggetto già presente'});
+            }else{
+                res.json({success: true, message: 'Prodotto inserito!'});
+            }
+        });
+    }
+   });
 
 
     //Login utente route
@@ -103,7 +123,34 @@ module.exports=function(router){
       });
     });
 
+   router.get('/visualizzautenti', function(req,res){
+   User.find({}, function(err, users){
+   if(err) throw err;
+   User.findOne({username: req.decoded.username}, function(err, mainUser){
+   if(err) throw err;
+   if(!mainUser){
+       res.json({ success: false, message: 'Utente non presente'});
+   }else{
+       if(mainUser.permission==='admin'||mainUser.permisiion==="moderator"){
+           if(!users){
+               res.json({ success: false, message: "Utente non presente"})
+           }else{
+               res.json({ success: true, users: users,permission: mainUser.permission});
+           }
 
+       }else{
+       res.json({success: false, message: 'Permessi insufficienti'});
+   }
+}
+
+   });
+   });
+   });
+
+ 
+
+  
+ 
 
  
      return router;   

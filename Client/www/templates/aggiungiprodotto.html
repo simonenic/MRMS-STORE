@@ -1,0 +1,31 @@
+<div class="page-header">
+    <h1 align="center">Aggiungi Prodotto</h1>
+</div>
+
+<form ng-submit="aggiungip.aggProd(regData);">
+    
+    <label>Nome Prodotto:</label>
+      <input type="text" class="form-control" name="nome" value="" placeholder="nome" ng-model="aggiungip.regData.nome">
+      <br>
+      <label> Descrizione:</label>
+      <textarea class="form-control" name="descrizione" rows="3" placeholder="Descrizione" ng-model="aggiungip.regData.descrizione"></textarea>
+      <br>
+      <label>Prezzo:</label>
+        <input type="text" class="form-control" name="prezzo" value="" placeholder="prezzo" ng-model="aggiungip.regData.prezzo" >
+      <br>
+      <label>Quantità:</label>
+      <input type="text" class="form-control" name="quantita" value="" placeholder="quantita" ng-model="aggiungip.regData.quantita" >
+      <br>
+    
+        <button type="submit" class="btn btn-warning">Aggiungi Prodotto</button>
+        
+  </form>
+
+<br>
+  <div class="row show-hide-message" ng-show="aggiungip.successMsg">
+    <div class="alert alert-success">{{aggiungip.successMsg}}</div>
+  </div>
+<br>
+  <div class="row show-hide-message" ng-show="aggiungip.errorMsg">
+    <div class="alert alert-danger">{{aggiungip.errorMsg}}</div>
+  </div>

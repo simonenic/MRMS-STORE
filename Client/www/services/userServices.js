@@ -10,13 +10,16 @@ userFactory.getPermission= function(){
 return $http.get('/api/permission/');
 };
 
-userFactory.getUsers= function(){
-    return $http.get('/api/admin/');
+userFactory.getUsers=function(){
+    return $http.get('/api/visualizzautenti/');
+ };
 
-};
 
 userFactory.deleteUser= function(username){
    return $http.delete('/api/admin/' + username);
 };
+
+
  return userFactory;
 });
+

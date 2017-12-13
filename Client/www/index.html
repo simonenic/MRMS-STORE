@@ -25,13 +25,20 @@
 <!--Angular config route-->
 <script src="app.js"></script>
 <script src="routes.js"></script>
+
 <!--Controller-->
 <script src="controllers/userCtrl.js"></script>
 <script src="controllers/loginCtrl.js"></script>
 <script src="controllers/adminCtrl.js"></script>
+<script src="controllers/prodottoCtrl.js"></script>
+<script src="controllers/utentiCtrl.js"></script>
+<script src="controllers/visualizzaprodCtrl.js"></script>
+<script src="controllers/prodclientiCtrl.js"></script>
+
 <!--Services-->
 <script src="services/userServices.js"></script>
 <script src="services/authServices.js"></script>
+<script src="services/prodottoServices.js"></script>
 
 
 </head>
@@ -56,19 +63,11 @@
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categorie <span class="caret"></span></a>
             <ul class="dropdown-menu">
-              <li><a href="#!/about"> <i class="fa fa-book fa-fw" aria-hidden="true"></i>&nbsp;   Libri</a></li>
-              <li role="separator" class="divider"></li>
-              <li><a href="#"> <i class="fa fa-music" aria-hidden="true"></i>&nbsp;   Musica</a></li>
-              <li role="separator" class="divider"></li>
-              <li><a href="#"> <i class="fa fa-film" aria-hidden="true"></i>&nbsp;    Film</a></li>
-              <li role="separator" class="divider"></li>
-              <li><a href="#"><i class="fa fa-gamepad" aria-hidden="true"></i>&nbsp;    Videogiochi e console</a></li>
-              <li role="separator" class="divider"></li>
-              <li><a href="#"><i class="fa fa-laptop" aria-hidden="true"></i>&nbsp;    Elettronica e informatica</a></li>
+              <li><a href="#!/about"> <i class="fa fa-book fa-fw" aria-hidden="true"></i>&nbsp;   Prodotti</a></li>
             </ul>
           </li>
           <li><a href="#"><i class="fa fa-gift" aria-hidden="true"></i>Buoni Regalo </a></li>
-          <li><a href="#"><i class="fa fa-whatsapp" aria-hidden="true"></i>Assistenza</a></li>
+          <li><a href="#!/contattaci"><i class="fa fa-whatsapp" aria-hidden="true"></i>Assistenza</a></li>
         </ul>
         <form class="navbar-form navbar-left">
           <div class="form-group">
@@ -77,7 +76,8 @@
           <button type="submit" class="btn btn-warning"><i class="fa fa-search" aria-hidden="true"></i></button>
         </form>
         <ul class="nav navbar-nav navbar-right">
-            <li><a href="#"><i class="fa fa-shopping-cart fa-lg" aria-hidden="true"></i> </a></li>
+                <li><a href="#!/checkout">Checkout</a></li>
+            <li><a href="#!/cart"><i class="fa fa-shopping-cart fa-lg" aria-hidden="true"></i> </a></li>
           <li><a ng-show="!login.isLoggedIn" href="#!/registrazione">Registrazione</a></li>
           <li><a ng-show="login.isLoggedIn" href="#" ng-click="login.logout();">Logout</a></li>
           <li><a ng-show="login.isLoggedIn; login.autorizzazione;" href="#!/admin">Amministratore</a></li>

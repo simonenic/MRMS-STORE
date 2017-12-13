@@ -16,13 +16,7 @@ angular.module('loginController',['authServices'])
                    }else{
                     app.loadme= true;
                    }
-               });
-
-
-
-
-
-               
+               });               
             });
            
         } else {
@@ -58,7 +52,7 @@ angular.module('loginController',['authServices'])
         $location.path('/logout');
         $timeout(function() {
             $location.path('/');
-        },3000);
+        },2000);
     };
     });
 

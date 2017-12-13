@@ -5,7 +5,8 @@ var app= angular.module('appRoutes',['ngRoute'])
         templateUrl: 'templates/home.html'
     })
     .when('/about',{
-        templateUrl:'templates/about.html'
+        templateUrl:'templates/about.html',
+        controller: 'prodclientiCtrl'
     })
     .when('/registrazione',{
         templateUrl:'templates/registrazione.html',
@@ -38,16 +39,31 @@ var app= angular.module('appRoutes',['ngRoute'])
         permission: ['admin' , 'moderator']
     })
 
-    .when('/modifica/:id',{
-        templateUrl:'templates/modifica.html',
-        controller:'modificaCtrl',
-        controllerAs:'modifica',
-        autenticazione:true,
-        permission: ['admin' , 'moderator']
+    .when('/aggiungiprodotto',{
+        templateUrl:'templates/aggiungiprodotto.html',
+        controller: 'prdCtrl',
+        controllerAs: 'aggiungip'
     })
+    .when('/visualizzaprodotti',{
+        templateUrl: 'templates/visualizzaprodotti.html'
+    })
+    .when('/visualizzautenti',{
+        templateUrl:'templates/visualizzautenti.html',
+        controller: 'utentiCtrl',
+        controllerAs:'visualizzautenti',
+        autenticazione: true,
+        permission: ['admin', 'moderator']
+    })
+    .when('/visualizzaprodotti',{
+        templateUrl: 'templates/visualizzaprodotti.html',
+        controller: 'visualizzaprodCtrl',
+        controllerAs: 'visualizzaprodotti'
 
-
-
+    })
+    .when('/contattaci',{
+        templateUrl:'templates/contattaci.html'
+    })
+  
 
 });
 

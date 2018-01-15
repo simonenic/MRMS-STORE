@@ -63,8 +63,9 @@ var app= angular.module('appRoutes',['ngRoute'])
     .when('/contattaci',{
         templateUrl:'templates/contattaci.html'
     })
-  
-
+    .when('/faq',{
+        templateUrl:'templates/faq.html'
+    })
 });
 
 

@@ -22,7 +22,7 @@ app.use('/api',appRoutes);
 
 
 
-mongoose.connect('mongodb://localhost:27017/mrmsdb', function(err){
+mongoose.connect('mongodb://remocottilli:ciaociao93@ds113136.mlab.com:13136/mrmsdb', function(err){
     if (err){
         console.log('Non connesso al database: '+ err);
     }else{
@@ -37,6 +37,9 @@ var transporter = nodemailer.createTransport({
     auth: {
       user: 'info.mrmsstore@gmail.com',
       pass: 'mrmsStore'
+    },
+    tls:{
+        rejectUnauthorized: false
     }
   });
 //operazione post per invio email
@@ -57,7 +60,70 @@ var transporter = nodemailer.createTransport({
     res.send("Email inviata");      
   });
 
+app.post('/acquista',function(req,res){
 
+    
+    Prodotto.findOne({nome: req.body.nome}, function(err, prodotto){
+        if(err){
+            return res.send("impossibile avviare la richiesta");
+        }
+        if(prodotto != null){
+            prodotto=prodotto.toJSON();
+            var quantita2= prodotto.quantita;
+            if(quantita2==0){
+                return res.redirect('/#!/acquisto-errato');
+            }
+            quantita2=quantita2- req.body.quantita;
+            if(quantita2<=0){
+                return res.redirect('/#!/acquisto-errato');
+            }
+            if(quantita2<=3){
+                var mailOptions ={
+                    from: 'info.mrmsstore@gmail.com',
+                    to: 'info.mrmsstore@gmail.com',
+                    subject:'Avviso prodotto #'+prodotto.id,
+                    text:'Il prodotto'+prodotto.nome+'('+prodotto.descrizione+') sta per terminare'
+                }
+                //Invio Email
+                transporter.sendMail(mailOptions, function(error, info){
+                    if(error){
+                        res.status(500).send("impossibile inviare email");
+                    }else{
+                        res.status(200).send("Email inviata correttamente");
+                    }
+                    });
+                }
+                    Prodotto.findOneAndUpdate({nome:req.body.nome}, {$set: {quantita:quantita2}}, function(err,prodotto2){
+                        if(err){
+                            return res.send('Impossibile aggiornare i valori nel database');
+                        }
+                    });
+                    mailOptions={
+                        from: 'info.mrmsstore@gmail.com',
+                        to: req.body.email,
+                        subject:'Acquisto prodotto #'+prodotto.nome,
+                        text:'Salve ,\nla vogliamo informare che ha appena acquistato '+
+                        'Il prodotto:'+prodotto.nome+'('+prodotto.descrizione+') in '+req.body.quantita+'quantità'+
+                        '\nArrivederci'
+                    }
+                    //Invio Email
+                    transporter.sendMail(mailOptions, function(error, info){
+                        if(error){
+                            res.status(500).send("Impossibile inviare email");
+                        }else{
+                            res.status(200).send("Email inviata correttamente");
+                        }
+                    });
+                    return res.redirect('/#!/acquisto-corretto');
+            }
+            else{
+                return res.redirect('/#!/acquisto-errato');
+            }
+
+    //else{
+    //    res.sendFile(__dirname+'/templates/403.html');
+    })
+});
 
 
 app.get('/visualizzaprodotti' , function(req,res){

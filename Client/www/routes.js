@@ -66,6 +66,9 @@ var app= angular.module('appRoutes',['ngRoute'])
     .when('/faq',{
         templateUrl:'templates/faq.html'
     })
+    .when('/carrello',{
+        templateUrl:'templates/carrello.html'
+    })
 });
 
 

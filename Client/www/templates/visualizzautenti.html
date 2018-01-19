@@ -3,6 +3,21 @@
 </div>
 
 <br>
+<button type="button" ng-click="visualizzautenti.showMore(number);" class="btn btn-success">Apply Filter</button>
+<button type="button" ng-click="visualizzautenti.showAll();"class="btn btn-warning">Show All</button>
+<div class="showmore">
+    <div class="col-lg-6">
+        <div class="input-group">
+            <span class="input-group-addon">Risultati:</span>
+            <input type="text" class="form-control" ng-model="number">
+
+        </div>
+    </div>
+
+</div>
+
+<br>
+<br>
 
 <div class="panel panel-primary">
     <div class="panel-heading">
@@ -14,19 +29,18 @@
         <th>Username</th>
         <th>Email</th>
     </tr>
-    <tr  ng-repeat="person in visualizzautenti.users">
+    <tr  ng-repeat="person in visualizzautenti.users | limitTo: visualizzautenti.limit">
         <td>{{person.nome}}</td>
         <td>{{person.username}}</td>
         <td>{{person.email}}</td>
         <td>
-            <a href="#">
-                <button type="button"  class="btn btn-primary">Modifica</button>
-            </a>
-            <a href="#">
-                <button type="button"  class="btn btn-danger">Elimina</button>
-            </a>
+      
+                <button type="button" ng-click="visualizzautenti.deleteUser(person.username);"  class="btn btn-danger">Elimina</button>
+           
         </td>
     </tr>
     </table>
- 
+ <div class="row show-hide-message" ng-show="visualizzautenti.successMsg">
+     <div class="alert alert-danger">{{visualizzautenti.showMoreError}}</div>
+ </div>
 </div>

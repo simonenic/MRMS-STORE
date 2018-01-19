@@ -131,7 +131,7 @@ module.exports=function(router){
    if(!mainUser){
        res.json({ success: false, message: 'Utente non presente'});
    }else{
-       if(mainUser.permission==='admin'||mainUser.permisiion==="moderator"){
+       if(mainUser.permission==='admin'||mainUser.permission==="moderator"){
            if(!users){
                res.json({ success: false, message: "Utente non presente"})
            }else{
@@ -144,6 +144,25 @@ module.exports=function(router){
 }
 
    });
+   });
+   });
+
+   router.delete('/visualizzautenti/:username', function(req,res){
+   var deletedUser= req.params.username;
+   User.findOne({username: req.decoded.username},function(err,mainUser){
+       if(err) throw err;
+       if(!mainUser){
+           res.json({success: false, message:'User non presente'});
+       }else{
+           if(mainUser.permission !='admin'){
+               res.json({success: false, message:'Permessi Insufficienti'});
+           }else{
+               User.findOneAndRemove({username:deletedUser},function(err,user){
+                   if(err) throw err;
+                   res.json({ success: true});
+               });
+           }
+       }
    });
    });
 

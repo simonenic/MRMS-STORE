@@ -72,13 +72,13 @@
         </ul>
         <form class="navbar-form navbar-left">
           <div class="form-group">
-            <input type="text" class="form-control" placeholder="Search">
+            <input type="text" class="form-control" placeholder="Search" ng-model: "search">
           </div>
           <button type="submit" class="btn btn-warning"><i class="fa fa-search" aria-hidden="true"></i></button>
         </form>
         <ul class="nav navbar-nav navbar-right">
-                <li><a href="#!/checkout">Checkout</a></li>
-            <li><a href="#!/cart"><i class="fa fa-shopping-cart fa-lg" aria-hidden="true"></i> </a></li>
+                
+            <li><a href="#!/carrello"><i class="fa fa-shopping-cart fa-lg" aria-hidden="true"></i> </a></li>
           <li><a ng-show="!login.isLoggedIn" href="#!/registrazione">Registrazione</a></li>
           <li><a ng-show="login.isLoggedIn" href="#" ng-click="login.logout();">Logout</a></li>
           <li><a ng-show="login.isLoggedIn; login.autorizzazione;" href="#!/admin">Amministratore</a></li>

@@ -16,7 +16,7 @@ userFactory.getUsers=function(){
 
 
 userFactory.deleteUser= function(username){
-   return $http.delete('/api/admin/' + username);
+   return $http.delete('/api/visualizzautenti/' + username);
 };
 
 

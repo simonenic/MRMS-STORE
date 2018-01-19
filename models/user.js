@@ -9,24 +9,24 @@ var nameValidator = [
      validator: 'matches',
      arguments: /^(([a-zA-Z]{3,20})+[ ]+([a-zA-Z]{3,20})+)+$/,
      message: 'Il nome deve contenere almeno 3 caratteri,al massimo 30,no caratteri speciali o numeri'
-    }),
-    validate({
-        validator: 'isLength',
-        arguments:[3,25],
-        message: 'Name should be between {ARGS[0] and Args[1]} characters'
     })
+    //validate({
+        //validator: 'isLength',
+        //arguments:[3,25],
+        //message: 'Name should be between {ARGS[0] and Args[1]} characters'
+    //})
   ];
 
   var emailValidator = [
     validate({
      validator: 'isEmail',
      message: 'Email non valida'
-    }),
-    validate({
-        validator: 'isLength',
-        arguments: [3,25],
-        message: 'Email should be between {ARGS[0] and Args[1]} characters'
     })
+    //validate({
+        //validator: 'isLength',
+        //arguments: [3,25],
+        //message: 'Email should be between {ARGS[0] and Args[1]} characters'
+    //})
   ];
 
 

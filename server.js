@@ -31,12 +31,13 @@ mongoose.connect('mongodb://remocottilli:ciaociao93@ds113136.mlab.com:13136/mrms
 });
 
 
+
 //Invio email 
 var transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
       user: 'info.mrmsstore@gmail.com',
-      pass: 'mrmsStore'
+      pass: 'mrmsstore'
     },
     tls:{
         rejectUnauthorized: false
@@ -60,9 +61,8 @@ var transporter = nodemailer.createTransport({
     res.send("Email inviata");      
   });
 
-app.post('/acquista',function(req,res){
 
-    
+app.post('/acquista',function(req,res){
     Prodotto.findOne({nome: req.body.nome}, function(err, prodotto){
         if(err){
             return res.send("impossibile avviare la richiesta");
@@ -73,10 +73,10 @@ app.post('/acquista',function(req,res){
             if(quantita2==0){
                 return res.redirect('/#!/acquisto-errato');
             }
-            quantita2=quantita2- req.body.quantita;
-            if(quantita2<=0){
+            quantita2=quantita2 - req.body.quantita;
+            if(quantita2<0){
                 return res.redirect('/#!/acquisto-errato');
-            }
+           }
             if(quantita2<=3){
                 var mailOptions ={
                     from: 'info.mrmsstore@gmail.com',
@@ -121,7 +121,7 @@ app.post('/acquista',function(req,res){
             }
 
     //else{
-    //    res.sendFile(__dirname+'/templates/403.html');
+      //res.sendFile(__dirname+'/templates/403.html');
     })
 });
 
@@ -140,6 +140,8 @@ app.get('/visualizzaprodotti' , function(req,res){
     });
 });
 
+
+
 app.get('/about' , function(req,res){
     Prodotto.find({}, function(err, prodotto){
         if(err){
@@ -155,7 +157,25 @@ app.get('/about' , function(req,res){
 });
 
 
-
+app.post('/avvisami', function(req, res){
+    Prodotto.findOne({nome: req.body.nome}, function(err, prodotto){
+        if(err){
+            return res.send('Impossibile avviare la richiesta');
+        }
+        if(prodotto != null){
+            prodotto = prodotto.toJSON();
+            if(prodotto.quantita == 0){
+                return res.send('Il prodotto non è al momento disponibile');
+            }
+            else{
+                return res.send('Il prodotto è disponibile in '+prodotto.quantita+' quantità');
+            }
+        }
+        else{
+            return res.send('Nessun prodotto trovato');
+        }
+    });
+});
 
 app.get('*',function(req,res){
     res.sendFile(path.join(__dirname +'/Client/www/index.html'));
@@ -163,3 +183,9 @@ app.get('*',function(req,res){
 app.listen( port, function(){
     console.log('Server partito alla porta'+port);
 });
+
+
+
+
+
+    

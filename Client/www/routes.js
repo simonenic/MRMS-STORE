@@ -69,6 +69,12 @@ var app= angular.module('appRoutes',['ngRoute'])
     .when('/carrello',{
         templateUrl:'templates/carrello.html'
     })
+    .when('/acquisto-corretto',{
+        templateUrl:'templates/acquisto-corretto.html'
+    })
+    .when('/avvisami',{
+        templateUrl:'templates/avvisami.html'
+    })
 });
 
 

@@ -10,11 +10,7 @@ var nameValidator = [
      arguments: /^(([a-zA-Z]{3,20})+[ ]+([a-zA-Z]{3,20})+)+$/,
      message: 'Il nome deve contenere almeno 3 caratteri,al massimo 30,no caratteri speciali o numeri'
     })
-    //validate({
-        //validator: 'isLength',
-        //arguments:[3,25],
-        //message: 'Name should be between {ARGS[0] and Args[1]} characters'
-    //})
+   
   ];
 
   var emailValidator = [
@@ -22,11 +18,7 @@ var nameValidator = [
      validator: 'isEmail',
      message: 'Email non valida'
     })
-    //validate({
-        //validator: 'isLength',
-        //arguments: [3,25],
-        //message: 'Email should be between {ARGS[0] and Args[1]} characters'
-    //})
+   
   ];
 
 
@@ -49,11 +41,7 @@ var nameValidator = [
         arguments: /^(?=.*?[a-z])(?=.*?[A-Z])(?=.*[\d])(?=.*?[\W]).{8,35}$/,
         message: ' La password deve contenere una lettera grande, una lettera piccola, un numero, un carattere speciale e 8 caratteri'
      }),
-     validate({
-        validator: 'isLength',
-        arguments:[8,35],
-        message: 'Password should be between {ARGS[0] and Args[1]} characters'
-    })
+    
  ]
 
 var UserSchema= new Schema({

@@ -2,7 +2,7 @@
 angular.module('authServices',[])
 .factory('Auth', function($http,AuthToken){
  var authFactory= {};
- //Auth.create(regData);
+ 
  authFactory.login= function(loginData){
      return $http.post('/api/autenticazione',loginData).then(function(data){
          AuthToken.setToken(data.data.token);
@@ -11,7 +11,7 @@ angular.module('authServices',[])
  };
 
 
-//Auth.isLoggedIn();
+
 authFactory.isLoggedIn= function(){
 if(AuthToken.getToken()){
     return true;
@@ -19,7 +19,7 @@ if(AuthToken.getToken()){
     return false;
 }
 };
-//Auth.getUser();
+
 authFactory.getUser= function(){
 if(AuthToken.getToken()){
     return $http.post('api/me');
@@ -28,7 +28,7 @@ if(AuthToken.getToken()){
 }
 };
 
-//Auth.logout();
+
 authFactory.logout= function(){
     AuthToken.setToken();
 };
@@ -38,7 +38,7 @@ authFactory.logout= function(){
 
 .factory('AuthToken',function($window){
 var authTokenFactory= {};
-//AuthToken.setToken(token);
+
 authTokenFactory.setToken = function(token){
 if(token){
     $window.localStorage.setItem('token',token);
@@ -47,7 +47,7 @@ if(token){
 }
 };
 
-//AuthToken.getToken();
+
 authTokenFactory.getToken= function(){
 return $window.localStorage.getItem('token');
 };

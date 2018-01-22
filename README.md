@@ -1,83 +1,33 @@
-Questo file di readme, è stato scritto utilizzando il linguaggio [Markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#links)
+#File README
+Il sito sarà del tipo di E-Commerce
+#Studenti
+Simone Nicolai (098169)
+Martina Verni (099232)
+Mattia Giordani (095998)
+Cottilli Remo (094590)
+#Obbiettivi
+Il sito viene creato con scopo didattico, per esame del corso Programmazione Web 2017/2018.
+#Descrizione
+Il sito sarà della categoria E-Commerce. Possiederà una aspetto semplice, in modo da semplificarne la navigazione. Permette le principali funzioni di un classico sito di e-commerce.
+## User Stories
+Il sito si impegna a rispettare le seguenti user stories:
+* Come admin voglio poter accedere ad un'area privata tramite username e password;
+* Come admin voglio gestire le rimanenze e i re-ordini dei prodotti;
+* Il server deve inviare una email all'admin quando sta per terminare un prodotto;
+* Come admin voglio poter creare e inserire un nuovo prodotto (con proprietà come nome, descrizione, peso, ecc.);
+* Come user voglio essere avvertito quando un prodotto terminato, risulta nuovamente disponibile;
+* Come user voglio la garanzia di avere una password cifrata;
+* Come admin voglio gestire gli account iscritti al sito;
+* Voglio poter registrare un nuovo admin della pagina;
+* Come user vorrei contattare l'assistenza tramite email;
+* Come user voglio ricevere un email di riepilogo del mio acquisto;
+* F.A.Q. consultabili in una pagina dedicata.
 
+## Heroku
+[App su Heroku]
 
-# NodeJs_server_examaple
-Esempio di server in Nodejs, con: 
-- autenticazione JWT
-- Middleware per controllo ruolo sulle route Admin
-- Mongoose per gli schemi DB
-- promesse con il modello "q"
-- organizzazione route divisa in diversi Router di Express
+## Video
+[Video di Presentazione]
 
-
-# Client di Riferimento in AngularJs 1
-- [link al repo](https://github.com/De-Lac/AngularJs_client_example)
-
-
-
-# ChangeLog
-- 27/06/2017 -- aggiunto logger Winston (differenzio tra info, debug e error. gli errori sono scritti su file)
-
-
-# API esposte dal server:
-
-/     
-GET   /  
-POST  /
-
-/admin  (richiesto ruolo admin)  
-GET   /admin/users  
-GET   /admin/setup  
-
-/api  
-POST  /api/signup  
-POST  /api/authenticate  
-
-
-Le API rispondo con un messaggio strutturato nel seguente modo
-- caso di successo
-`{success: true, message: 'operazione completata',  data: {'token':'494jti4944'}}`
-- caso di errore
-`{ success: false, code: 'ERR_API_WRONG_PSW', message: 'autenticazione fallita' }`
-
-
-
-# Codici Errore restituiti dal server
-- ERR_API_NOT_FOUND - l'elemento cercato non esiste sul db
-- ERR_API_WRONG_PSW - autenticazione fallita
-- ERR_DB_DUPLICATE_KEY - si sta cercando di salvare un elemento già esistente
-
-
-
-# Struttura file del server
-```
---- index.js                / /file principale da eseguire
---- package.js
---+ routes
-  |---- db-utilities.js      //funzioni condivise tra tutti, per interagire con il db
-  |--+ admin
-     |--- admin-index.js     //file principale del modulo Admin
-     |--- admin-utilities.js //funzioni del modulo Admin       
-  |--+ api  
-     |--- api-index.js       //file principale del modulo Api
-     |--- api-utilities.js   //funzioni del modulo Api
---+ models                   //schemi modelli Mongoose
-  |--- User.js
-```
-
-Prima di avviare il server, installare le dipendenze con il comando  
-`npm install`
-
-poi avviarlo con il comando  
-`node index.js`
-
-oppure installate [https://github.com/foreverjs/forever](forever), per riavviare in automatico Node dopo una modifica, o dopo un crash. (-w sta per watch, cioè controlla se sono state salvate modifiche)  
-`forever -w start index.js`
-
-
-
-# Tutorial di riferimento Scotch.io
-- [JWT e Node](https://scotch.io/tutorials/authenticate-a-node-js-api-with-json-web-tokens)
-- [Mongoose e Node](https://scotch.io/tutorials/using-mongoosejs-in-node-js-and-mongodb-applications)
-- [Organizzare le route](https://scotch.io/tutorials/keeping-api-routing-clean-using-express-routers)
-
+##Slide 
+[Slides di Presentazione]

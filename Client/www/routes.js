@@ -44,9 +44,7 @@ var app= angular.module('appRoutes',['ngRoute'])
         controller: 'prdCtrl',
         controllerAs: 'aggiungip'
     })
-    .when('/visualizzaprodotti',{
-        templateUrl: 'templates/visualizzaprodotti.html'
-    })
+
     .when('/visualizzautenti',{
         templateUrl:'templates/visualizzautenti.html',
         controller: 'utentiCtrl',
@@ -74,6 +72,9 @@ var app= angular.module('appRoutes',['ngRoute'])
     })
     .when('/avvisami',{
         templateUrl:'templates/avvisami.html'
+    })
+    .when('/acquisto-errato',{
+        templateUrl:'templates/acquisto-errato.html'
     })
 });
 

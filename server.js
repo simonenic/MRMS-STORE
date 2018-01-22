@@ -119,9 +119,6 @@ app.post('/acquista',function(req,res){
             else{
                 return res.redirect('/#!/acquisto-errato');
             }
-
-    //else{
-      //res.sendFile(__dirname+'/templates/403.html');
     })
 });
 

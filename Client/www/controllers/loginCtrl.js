@@ -3,7 +3,6 @@ angular.module('loginController',['authServices'])
     var app=this;
     app.loadme= false;
     $rootScope.$on('$routeChangeStart', function(){
-       
         if(Auth.isLoggedIn()) {
             app.isLoggedIn=true;
             Auth.getUser().then(function(data){
@@ -35,7 +34,7 @@ angular.module('loginController',['authServices'])
         Auth.login(app.loginData).then(function(data){
            if(data.data.success){
                app.loading= false;
-            app.successMsg= data.data.message + '...Torna alla home page';
+            app.successMsg= data.data.message ;
             $timeout(function(){
                 $location.path('/about');
                 app.successMsg=false;

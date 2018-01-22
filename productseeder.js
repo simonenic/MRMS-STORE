@@ -6,7 +6,7 @@ var prodottos= [
     new Prodotto({
     imagePath:'img/iphonex.jpg',
     nome:'iphone x',
-    descrizione: 'su iphone x il protagonista assoluto è lo schermo: un nuovissimo display super retina da 5,8", perfetto nel palmo della mano e splendido per gli occhi.',
+    descrizione: ' iphone x il protagonista assoluto è lo schermo: un nuovissimo display super retina da 5,8"',
     prezzo: 1200,
     quantita: 12
 }),
@@ -23,6 +23,21 @@ new Prodotto({
     descrizione: 'Samsung',
     prezzo: 599,
     quantita: 10
+}),
+new Prodotto({
+    imagePath:'img/beats.jpg',
+    nome:'Cuffie Beats Solo 3',
+    descrizione:'Cuffie',
+    prezzo: 120,
+    quantita: 10
+}),
+new Prodotto({
+    imagePath:'img/nike.jpg',
+    nome: 'Nike Air',
+    descrizione:'Scarpe nike adulto',
+    prezzo: 80,
+    quantita: 12
+
 })
 
 ];

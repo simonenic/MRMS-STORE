@@ -102,9 +102,9 @@ app.post('/acquista',function(req,res){
                         from: 'info.mrmsstore@gmail.com',
                         to: req.body.email,
                         subject:'Acquisto prodotto #'+prodotto.nome,
-                        text:'Salve ,\nla vogliamo informare che ha appena acquistato '+
-                        'Il prodotto:'+prodotto.nome+'('+prodotto.descrizione+') in '+req.body.quantita+'quantità'+
-                        '\nArrivederci'
+                        text:'Salve ,\nla vogliamo informare che ha appena acquistato'+
+                        ' il prodotto:'+prodotto.nome+' in '+req.body.quantita+' quantità'+
+                        '\nArrivederci.'
                     }
                     //Invio Email
                     transporter.sendMail(mailOptions, function(error, info){

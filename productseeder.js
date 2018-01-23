@@ -11,7 +11,7 @@ var prodottos= [
     quantita: 12
 }),
 new Prodotto({
-    imagePath:'img/fifa18.jpg',
+    imagePath:'img/fifa181.jpg',
     nome:'Fifa 18',
     descrizione: 'Videogame',
     prezzo: 50,

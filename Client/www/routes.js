@@ -76,6 +76,9 @@ var app= angular.module('appRoutes',['ngRoute'])
     .when('/acquisto-errato',{
         templateUrl:'templates/acquisto-errato.html'
     })
+    .when('/email',{
+        templateUrl:'templates/email.html'
+    })
 });
 
 

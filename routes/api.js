@@ -1,7 +1,7 @@
 var User    = require('../models/user.js');
 var Prodotto= require('../models/prodotto.js');
 var jwt     =require('jsonwebtoken');
-var secret  ='harrypotter';
+var secret  ='abcdef';
 
 module.exports=function(router){
 
@@ -166,11 +166,5 @@ module.exports=function(router){
    });
    });
 
- 
-
-  
- 
-
- 
      return router;   
  };

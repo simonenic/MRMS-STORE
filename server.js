@@ -58,7 +58,7 @@ var transporter = nodemailer.createTransport({
             console.log('Email sent: ' + info.response);
         }
     });
-    res.send("Email inviata");      
+    res.redirect('/#!/email');      
   });
 
 

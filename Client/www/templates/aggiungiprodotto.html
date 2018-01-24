@@ -3,6 +3,16 @@
 </div>
 
 <form ng-submit="aggiungip.aggProd(regData);">
+
+    <div class="container">
+        <div class="row vertical-offset-100">
+            <div class="col-md-6 col-md-offset-3">
+                <div class="panel panel-default">
+                      <div class="panel-heading">
+                        <h3 align="center"  class="panel-title">MRMS-STORE</h3>
+                     </div>
+                      <div class="panel-body">
+                        <form accept-charset="UTF-8" role="form">
     
     <label>Nome Prodotto:</label>
       <input type="text" class="form-control" name="nome" value="" placeholder="nome" ng-model="aggiungip.regData.nome">
@@ -17,7 +27,7 @@
       <input type="text" class="form-control" name="quantita" value="" placeholder="quantita" ng-model="aggiungip.regData.quantita" >
       <br>
     
-        <button type="submit" class="btn btn-warning">Aggiungi Prodotto</button>
+        <button type="submit" class="btn btn-warning  btn-block">Aggiungi Prodotto</button>
         
   </form>
 

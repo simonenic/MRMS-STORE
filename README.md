@@ -29,5 +29,5 @@ Il sito si impegna a rispettare le seguenti user stories:
 ## Video
 [Video di Presentazione]
 
-##Slide 
+## Slide 
 [Slides di Presentazione]

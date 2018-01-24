@@ -24,12 +24,12 @@ Il sito si impegna a rispettare le seguenti user stories:
 * F.A.Q. consultabili in una pagina dedicata.
 
 ## Heroku
-[App su Heroku]:
+[App su Heroku]
 https://mrms-store.herokuapp.com/#!/
 
 ## Video
 [Video di Presentazione]
 
 ## Slide 
-[Slides di Presentazione]:
+[Slides di Presentazione]
 https://mega.nz/#!1jIVXDoA!fnMWT3vdyaWPIr_1wBDBkRIsRNqKMI_RaGQpZ4vWSOg

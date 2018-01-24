@@ -1,13 +1,13 @@
-#File README
+# File README
 Il sito sarà del tipo di E-Commerce
-#Studenti
+# Studenti
 Simone Nicolai (098169)
 Martina Verni (099232)
 Mattia Giordani (095998)
 Cottilli Remo (094590)
-#Obbiettivi
+# Obbiettivi
 Il sito viene creato con scopo didattico, per esame del corso Programmazione Web 2017/2018.
-#Descrizione
+# Descrizione
 Il sito sarà della categoria E-Commerce. Possiederà una aspetto semplice, in modo da semplificarne la navigazione. Permette le principali funzioni di un classico sito di e-commerce.
 ## User Stories
 Il sito si impegna a rispettare le seguenti user stories:
@@ -26,8 +26,10 @@ Il sito si impegna a rispettare le seguenti user stories:
 ## Heroku
 [App su Heroku]
 
+
 ## Video
 [Video di Presentazione]
 
 ## Slide 
 [Slides di Presentazione]
+https://mega.nz/#!1jIVXDoA!fnMWT3vdyaWPIr_1wBDBkRIsRNqKMI_RaGQpZ4vWSOg

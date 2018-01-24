@@ -49,7 +49,7 @@ var transporter = nodemailer.createTransport({
         from: req.body.email,
         to: 'info.mrmsstore@gmail.com',
         subject: 'Email di contattaci da '+req.body.email,
-        text: 'Nome del richiedente: '+req.body.name+'\n\nMessaggio\n'+req.body.message
+        text: 'Nome del richiedente: '+req.body.name+ '\n\n Messaggio \n'+req.body.message
     };
     transporter.sendMail(mailOptions, function(error, info){
         if (error) {
@@ -102,9 +102,9 @@ app.post('/acquista',function(req,res){
                         from: 'info.mrmsstore@gmail.com',
                         to: req.body.email,
                         subject:'Acquisto prodotto #'+prodotto.nome,
-                        text:'Salve ,\nla vogliamo informare che ha appena acquistato'+
+                        text:'Salve, \nla vogliamo informare che ha appena acquistato'+
                         ' il prodotto:'+prodotto.nome+' in '+req.body.quantita+' quantità'+
-                        '\nArrivederci.'
+                        '\n Arrivederci.'
                     }
                     //Invio Email
                     transporter.sendMail(mailOptions, function(error, info){

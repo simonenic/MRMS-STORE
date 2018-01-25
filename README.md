@@ -18,7 +18,7 @@ Il sito si impegna a rispettare le seguenti user stories:
 * Come user voglio essere avvertito quando un prodotto terminato, risulta nuovamente disponibile;
 * Come user voglio la garanzia di avere una password cifrata;
 * Come admin voglio gestire gli account iscritti al sito;
-* Voglio poter registrare un nuovo admin della pagina;
+* Voglio poter registrare un nuovo utente alla pagina;
 * Come user vorrei contattare l'assistenza tramite email;
 * Come user voglio ricevere un email di riepilogo del mio acquisto;
 * F.A.Q. consultabili in una pagina dedicata.

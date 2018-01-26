@@ -82,7 +82,7 @@ module.exports=function(router){
                 res.json({ success: false, message:'Password non presente'});
             }
             if(!validPassword){
-                res.json({ success: false, message:'Password non autenticata'});
+                res.json({ success: false, message:'Password non corretta'});
             }else{
                 var token=jwt.sign({ username: user.username, email: user.email},secret,{expiresIn: '24h'});
                 res.json({success: true, message:'User autenticato!', token: token });

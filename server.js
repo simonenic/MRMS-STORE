@@ -82,7 +82,7 @@ app.post('/acquista',function(req,res){
                     from: 'info.mrmsstore@gmail.com',
                     to: 'info.mrmsstore@gmail.com',
                     subject:'Avviso prodotto #'+prodotto.id,
-                    text:'Il prodotto'+prodotto.nome+'('+prodotto.descrizione+') sta per terminare'
+                    text:'Il prodotto '+ prodotto.nome+'('+prodotto.descrizione+') sta per terminare'
                 }
                 //Invio Email
                 transporter.sendMail(mailOptions, function(error, info){
@@ -103,7 +103,7 @@ app.post('/acquista',function(req,res){
                         to: req.body.email,
                         subject:'Acquisto prodotto #'+prodotto.nome,
                         text:'Salve, \nla vogliamo informare che ha appena acquistato'+
-                        ' il prodotto:'+prodotto.nome+' in '+req.body.quantita+' quantità'+
+                        ' il prodotto: '+prodotto.nome+' in '+req.body.quantita+' quantità'+
                         '\n Arrivederci.'
                     }
                     //Invio Email

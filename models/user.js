@@ -4,14 +4,7 @@ var bcrypt= require('bcrypt-nodejs');
 var titlize=require('mongoose-title-case');
 var validate=require('mongoose-validator');
 
-var nameValidator = [
-    validate({
-     validator: 'matches',
-     arguments: /^(([a-zA-Z]{3,20})+[ ]+([a-zA-Z]{3,20})+)+$/,
-     message: 'Il nome deve contenere almeno 3 caratteri,al massimo 30,no caratteri speciali o numeri'
-    })
-   
-  ];
+
 
   var emailValidator = [
     validate({
@@ -30,7 +23,7 @@ var nameValidator = [
     }),
       validate({
          validator:'isAlphanumeric',
-         message:'Username deve contenere lettere e numeri'
+         message:'Username può contenere lettere e numeri'
     })
    ];
 
@@ -39,13 +32,13 @@ var nameValidator = [
      validate({
         validator: 'matches',
         arguments: /^(?=.*?[a-z])(?=.*?[A-Z])(?=.*[\d])(?=.*?[\W]).{8,35}$/,
-        message: ' La password deve contenere una lettera grande, una lettera piccola, un numero, un carattere speciale e 8 caratteri'
+        message: ' La password deve contenere 8 caratteri, tra cui una lettera maiuscola, una minuscola, un numero e un carattere speciale'
      }),
     
  ]
 
 var UserSchema= new Schema({
-    nome :{type:String,required:true,validate: nameValidator},
+    nome :{type:String,required:true},
     username: {type:String , lowercase: true, required:true,unique:true, validate: usernameValidator},
     password:{ type:String , reuired: true, validate: passwordValidator},
     email: {type:String , required:true,unique:true,lowercase: true, validate: emailValidator},

@@ -29,6 +29,7 @@ https://mrms-store.herokuapp.com/#!/
 
 ## Video
 [Video di Presentazione]
+https://www.youtube.com/watch?v=24tqzZUgeME&feature=youtu.be
 
 ## Slide 
 [Slides di Presentazione]
